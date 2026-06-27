@@ -1,0 +1,10 @@
+export const EMI_LIMITS = {
+  MIN_AMOUNT: 10000,
+  MAX_AMOUNT: 50000000,
+
+  MIN_RATE: 1,
+  MAX_RATE: 25,
+
+  MIN_YEARS: 1,
+  MAX_YEARS: 30,
+};

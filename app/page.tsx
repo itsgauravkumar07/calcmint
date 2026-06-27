@@ -1,9 +1,13 @@
+import { Hero } from "@/components/home/hero";
+import { FeaturedCalculators } from "@/components/home/featured-calculators";
+import { Categories } from "@/components/home/categories";
+
 export default function HomePage() {
   return (
-    <section className="flex h-[80vh] items-center justify-center">
-      <h1 className="text-5xl font-bold">
-        Welcome to CalcMint 🚀
-      </h1>
-    </section>
+    <>
+      <Hero />
+      <FeaturedCalculators />
+      <Categories />
+    </>
   );
 }
