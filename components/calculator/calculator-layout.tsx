@@ -13,8 +13,8 @@ export function CalculatorLayout({
 }: CalculatorLayoutProps) {
   return (
     <div className="space-y-12">
-      <div className="grid gap-8 lg:grid-cols-2">
-        <aside className="lg:sticky lg:top-24 h-fit">
+      <div className="grid gap-8 lg:grid-cols-[420px_1fr]">
+        <aside className="lg:sticky lg:top-24 lg:self-start">
           {left}
         </aside>
 
