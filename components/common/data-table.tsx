@@ -15,7 +15,7 @@ export function DataTable<T extends object>({
 }: DataTableProps<T>) {
   return (
     <div className="overflow-hidden rounded-xl border">
-      <div className="max-h-[600px] overflow-auto">
+      <div className="max-h-150 overflow-auto">
         <table className="min-w-full">
         <thead className="bg-slate-100 sticky top-0 z-10">
           <tr>
