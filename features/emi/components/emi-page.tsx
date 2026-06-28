@@ -9,6 +9,7 @@ import { EmiSummary } from "./emi-summary";
 import { AmortizationTable } from "./amortization-table";
 import { EmiFormula } from "./emi-formula";
 import { EmiExample } from "./emi-example";
+import { EmiFaq } from "./emi-faq";
 
 export function EmiPage() {
   const emi = useEmiCalculator();
@@ -48,6 +49,8 @@ export function EmiPage() {
         tenureYears={emi.years}
         emi={emi.result.emi}
       />
+
+      <EmiFaq />
 
     </CalculatorLayout>
   );

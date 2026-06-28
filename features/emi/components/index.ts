@@ -5,3 +5,4 @@ export * from "./amortization-table";
 export * from "./emi-page";
 export * from "./emi-formula";
 export * from "./emi-example";
+export * from "./emi-faq";
