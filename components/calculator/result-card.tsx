@@ -1,3 +1,4 @@
+import { Label } from "@/components/typography";
 import { cn } from "@/lib/utils";
 
 interface ResultCardProps {
@@ -16,19 +17,17 @@ export function ResultCard({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md",
+        "rounded-2xl border border-border bg-card p-6 card-shadow transition-all duration-300 card-shadow-hover",
         className
       )}
     >
-      <p className="text-sm font-medium text-slate-500">
-        {title}
-      </p>
+      <Label>{title}</Label>
 
       <p
         className={cn(
-          "mt-2 text-2xl font-bold tracking-tight",
-          highlight ? "text-emerald-600 text-3xl" : "text-slate-900"
-        )}
+    "rounded-2xl border border-border bg-card p-6 card-shadow transition-all duration-300 card-shadow-hover",
+    highlight && "border-primary/20 bg-primary/5"
+  )}
       >
         {value}
       </p>

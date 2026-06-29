@@ -1,4 +1,13 @@
-import { Card } from "@/components/ui/card";
+import { Calculator, Sigma } from "lucide-react";
+
+import {
+  InfoCard,
+  ResultGrid,
+  ResultCard,
+} from "@/components/calculator";
+
+import { SectionHeader } from "@/components/common";
+
 import { formatCurrency } from "../lib";
 
 interface EmiFormulaProps {
@@ -17,58 +26,72 @@ export function EmiFormula({
   const monthlyRate = annualRate / 12;
 
   return (
-    <Card className="mt-8 rounded-2xl p-6">
-      <h2 className="text-2xl font-bold">
-        EMI Formula
-      </h2>
+    <section className="mt-20">
+      <SectionHeader
+        badge="Formula"
+        title="How EMI is Calculated"
+        description="The Equated Monthly Installment (EMI) is calculated using a standard mathematical formula based on your loan amount, interest rate, and repayment tenure."
+      />
 
-      <p className="mt-4 text-slate-600">
-        The Equated Monthly Installment (EMI) is calculated using the following formula:
-      </p>
+      <InfoCard
+        icon={<Calculator className="h-5 w-5" />}
+        title="EMI Formula"
+      >
+        <div className="mt-8 rounded-2xl bg-surface-muted p-8 text-center">
+          <div className="overflow-x-auto">
+            <p className="text-3xl font-bold tracking-tight text-foreground">
+              EMI = P × R × (1 + R)
+              <sup>N</sup>
+            </p>
 
-      <div className="my-8 overflow-x-auto rounded-xl bg-slate-50 p-6 text-center">
-        <p className="text-2xl font-semibold">
-          EMI = P × R × (1 + R)<sup>N</sup>
-        </p>
+            <p className="my-4 text-xl text-text-muted">
+              ───────────────────────────────
+            </p>
 
-        <p className="mt-2 text-xl">
-          ─────────────────────────────
-        </p>
-
-        <p className="text-2xl font-semibold">
-          ((1 + R)<sup>N</sup> − 1)
-        </p>
-      </div>
-
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-lg border p-4">
-          <p className="font-medium">P (Principal)</p>
-          <p className="mt-2 text-lg">
-            {formatCurrency(principal)}
-          </p>
+            <p className="text-3xl font-bold tracking-tight text-foreground">
+              (1 + R)
+              <sup>N</sup>
+              − 1
+            </p>
+          </div>
         </div>
 
-        <div className="rounded-lg border p-4">
-          <p className="font-medium">R (Monthly Interest Rate)</p>
-          <p className="mt-2 text-lg">
-            {monthlyRate.toFixed(4)}%
-          </p>
+        <div className="mt-8">
+          <ResultGrid>
+            <ResultCard
+              title="Principal (P)"
+              value={formatCurrency(principal)}
+            />
+
+            <ResultCard
+              title="Monthly Rate (R)"
+              value={`${monthlyRate.toFixed(4)}%`}
+            />
+
+            <ResultCard
+              title="Tenure (N)"
+              value={`${tenureYears * 12} Months`}
+            />
+
+            <ResultCard
+              title="Monthly EMI"
+              value={formatCurrency(emi)}
+              highlight
+            />
+          </ResultGrid>
         </div>
 
-        <div className="rounded-lg border p-4">
-          <p className="font-medium">N (Loan Tenure)</p>
-          <p className="mt-2 text-lg">
-            {tenureYears * 12} Months
-          </p>
-        </div>
+        <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-primary/5 p-5">
+          <Sigma className="mt-0.5 h-5 w-5 text-primary" />
 
-        <div className="rounded-lg border p-4">
-          <p className="font-medium">Monthly EMI</p>
-          <p className="mt-2 text-lg font-bold text-emerald-600">
-            {formatCurrency(emi)}
+          <p className="text-sm leading-7 text-text-secondary">
+            <strong className="text-foreground">Where:</strong>{" "}
+            <strong>P</strong> is the loan amount,
+            <strong> R</strong> is the monthly interest rate, and
+            <strong> N</strong> is the total number of monthly installments.
           </p>
         </div>
-      </div>
-    </Card>
+      </InfoCard>
+    </section>
   );
 }

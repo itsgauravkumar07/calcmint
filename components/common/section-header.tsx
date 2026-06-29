@@ -1,5 +1,10 @@
 import { cn } from "@/lib/utils";
 
+import {
+  SectionTitle,
+  Lead,
+} from "@/components/typography";
+
 interface SectionHeaderProps {
   badge?: string;
   title: string;
@@ -18,25 +23,25 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "space-y-4",
+        "space-y-5",
         center && "mx-auto max-w-3xl text-center",
         className
       )}
     >
       {badge && (
-        <span className="inline-flex rounded-full bg-emerald-100 px-4 py-1 text-sm font-semibold text-emerald-700">
+        <span className="inline-flex items-center rounded-full bg-emerald-100 px-4 py-1.5 text-sm font-semibold text-emerald-700">
           {badge}
         </span>
       )}
 
-      <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+      <SectionTitle>
         {title}
-      </h2>
+      </SectionTitle>
 
       {description && (
-        <p className="text-lg leading-8 text-slate-600">
+        <Lead>
           {description}
-        </p>
+        </Lead>
       )}
     </div>
   );

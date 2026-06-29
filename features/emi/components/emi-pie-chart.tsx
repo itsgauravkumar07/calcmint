@@ -8,30 +8,28 @@ import {
   Tooltip,
 } from "recharts";
 
+import { chartColors } from "@/lib/chart-colors";
+
 interface EmiPieChartProps {
   principal: number;
   interest: number;
 }
 
-const dataColors = {
-  principal: "#10b981",
-  interest: "#f59e0b",
-};
-
 export function EmiPieChart({
   principal,
   interest,
 }: EmiPieChartProps) {
+
   const data = [
     {
       name: "Principal",
       value: principal,
-      color: dataColors.principal,
+      fill: chartColors.primary,
     },
     {
       name: "Interest",
       value: interest,
-      color: dataColors.interest,
+      fill: chartColors.secondary,
     },
   ];
 
@@ -54,7 +52,7 @@ export function EmiPieChart({
               {data.map((entry) => (
                 <Cell
                   key={entry.name}
-                  fill={entry.color}
+                  fill={entry.fill}
                 />
               ))}
             </Pie>
@@ -69,28 +67,30 @@ export function EmiPieChart({
         </ResponsiveContainer>
       </div>
 
-      <div className="mt-6 space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full bg-emerald-500" />
-            <span>Principal</span>
+      <div className="mt-6 space-y-4">
+        {data.map((item) => (
+          <div
+            key={item.name}
+            className="flex items-center justify-between"
+          >
+            <div className="flex items-center gap-3">
+              <div
+                className="h-3 w-3 rounded-full"
+                style={{
+                  backgroundColor: item.fill,
+                }}
+              />
+
+              <span className="font-medium text-text-primary">
+                {item.name}
+              </span>
+            </div>
+
+            <span className="font-semibold text-foreground">
+              ₹ {item.value.toLocaleString("en-IN")}
+            </span>
           </div>
-
-          <span className="font-semibold">
-            ₹ {principal.toLocaleString("en-IN")}
-          </span>
-        </div>
-
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full bg-amber-500" />
-            <span>Interest</span>
-          </div>
-
-          <span className="font-semibold">
-            ₹ {interest.toLocaleString("en-IN")}
-          </span>
-        </div>
+        ))}
       </div>
     </div>
   );

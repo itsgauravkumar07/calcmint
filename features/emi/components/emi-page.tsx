@@ -2,13 +2,16 @@
 
 import { useEmiCalculator } from "../hooks";
 
-import { CalculatorLayout } from "@/components/calculator/calculator-layout";
+import {
+  CalculatorCTA,
+  CalculatorLayout,
+} from "@/components/calculator";
 
 import { EmiForm } from "./emi-form";
 import { EmiSummary } from "./emi-summary";
-import { AmortizationTable } from "./amortization-table";
 import { EmiFormula } from "./emi-formula";
 import { EmiExample } from "./emi-example";
+import { AmortizationTable } from "./amortization-table";
 import { EmiFaq } from "./emi-faq";
 
 export function EmiPage() {
@@ -32,10 +35,6 @@ export function EmiPage() {
         />
       }
     >
-      <AmortizationTable
-        schedule={emi.schedule}
-      />
-
       <EmiFormula
         principal={emi.principal}
         annualRate={emi.rate}
@@ -50,8 +49,13 @@ export function EmiPage() {
         emi={emi.result.emi}
       />
 
+      <AmortizationTable
+        schedule={emi.schedule}
+      />
+
       <EmiFaq />
 
+      <CalculatorCTA />
     </CalculatorLayout>
   );
 }

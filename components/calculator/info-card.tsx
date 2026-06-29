@@ -1,14 +1,17 @@
 import { Card } from "@/components/ui/card";
+import { CardTitle, Paragraph } from "@/components/typography";
 import { cn } from "@/lib/utils";
 
 interface InfoCardProps {
   title?: string;
   description?: string;
+  icon?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
 }
 
 export function InfoCard({
+  icon,
   title,
   description,
   children,
@@ -17,20 +20,31 @@ export function InfoCard({
   return (
     <Card
       className={cn(
-        "rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg",
+         "rounded-2xl border border-border-light bg-surface p-6 card-shadow transition-all duration-300 card-shadow-hover",
         className
       )}
     >
-      {title && (
-        <h3 className="text-xl font-semibold text-slate-900">
-          {title}
-        </h3>
+
+      {(icon || title) && (
+        <div className="flex items-center gap-3">
+          {icon && (
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
+              {icon}
+            </div>
+          )}
+
+          {title && (
+            <CardTitle>
+              {title}
+            </CardTitle>
+          )}
+        </div>
       )}
 
       {description && (
-        <p className="mt-2 text-slate-600">
+        <Paragraph className="mt-2">
           {description}
-        </p>
+        </Paragraph>
       )}
 
       <div

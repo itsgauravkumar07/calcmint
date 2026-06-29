@@ -1,13 +1,13 @@
 import { CalculatorGrid } from "@/components/calculator/calculator-grid";
 import { Container } from "@/components/layout/container";
-import { Heading } from "@/components/common/section-header";
+import { SectionHeader } from "@/components/common/section-header";
 import { Section } from "@/components/common/section";
 
 export default function CalculatorsPage() {
   return (
     <Section>
       <Container>
-        <Heading
+        <SectionHeader
           center
           title="Financial Calculators"
           description="Browse all free financial calculators available on CalcMint."

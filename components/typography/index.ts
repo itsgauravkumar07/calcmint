@@ -4,3 +4,4 @@ export * from "./card-title";
 export * from "./paragraph";
 export * from "./lead";
 export * from "./caption";
+export * from "./label";

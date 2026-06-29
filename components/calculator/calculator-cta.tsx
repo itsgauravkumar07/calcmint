@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { SectionTitle, Lead } from "@/components/typography";
+
 import { InfoCard } from "./info-card";
 
 interface CalculatorCTAProps {
@@ -14,15 +16,15 @@ export function CalculatorCTA({
   description = "Explore our collection of free finance calculators and financial guides to make smarter money decisions.",
 }: CalculatorCTAProps) {
   return (
-    <InfoCard className="mt-16 overflow-hidden bg-gradient-to-r from-emerald-50 via-white to-emerald-50 p-10">
+    <InfoCard className="mt-16 overflow-hidden bg-gradient-to-r from-primary/5 via-bg-card to-primary/5 p-10">
       <div className="flex flex-col items-center text-center">
-        <h2 className="text-3xl font-bold text-slate-900">
+        <SectionTitle>
           {title}
-        </h2>
+        </SectionTitle>
 
-        <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+        <Lead className="mt-4 max-w-2xl">
           {description}
-        </p>
+        </Lead>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button asChild size="lg">

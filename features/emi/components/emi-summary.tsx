@@ -1,5 +1,10 @@
+import {
+  ResultCard,
+  ResultGrid,
+} from "@/components/calculator";
+
 import { EmiResult } from "@/features/emi/types";
-import { ResultCard } from "@/components/calculator/result-card";
+
 import { EmiPieChart } from "./emi-pie-chart";
 
 interface Props {
@@ -11,16 +16,15 @@ export function EmiSummary({
 }: Props) {
   return (
     <div className="space-y-6">
-
       <ResultCard
         title="Monthly EMI"
         value={`₹ ${result.emi.toLocaleString("en-IN")}`}
+        highlight
       />
 
-      <div className="grid grid-cols-2 gap-4">
-
+      <ResultGrid>
         <ResultCard
-          title="Interest"
+          title="Total Interest"
           value={`₹ ${result.totalInterest.toLocaleString("en-IN")}`}
         />
 
@@ -28,17 +32,12 @@ export function EmiSummary({
           title="Total Payment"
           value={`₹ ${result.totalPayment.toLocaleString("en-IN")}`}
         />
-
-      </div>
+      </ResultGrid>
 
       <EmiPieChart
-        principal={
-          result.totalPayment -
-          result.totalInterest
-        }
+        principal={result.totalPayment - result.totalInterest}
         interest={result.totalInterest}
       />
-
     </div>
   );
 }

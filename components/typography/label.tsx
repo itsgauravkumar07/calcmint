@@ -1,22 +1,22 @@
 import { cn } from "@/lib/utils";
 
-interface SectionProps {
+interface LabelProps {
   children: React.ReactNode;
   className?: string;
 }
 
-export function Section({
+export function Label({
   children,
   className,
-}: SectionProps) {
+}: LabelProps) {
   return (
-    <section
+    <p
       className={cn(
-        "space-y-12 py-20",
+        "text-sm font-medium text-slate-500",
         className
       )}
     >
       {children}
-    </section>
+    </p>
   );
 }

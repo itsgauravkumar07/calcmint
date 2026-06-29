@@ -52,6 +52,27 @@
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
 
+    /* ===========================
+     CalcMint Theme Tokens
+  =========================== */
+
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  --color-border-light: var(--border-light);
+  --color-border-strong: var(--border-strong);
+
+
   --radius-sm: calc(var(--radius) * .6);
   --radius-md: calc(var(--radius) * .8);
   --radius-lg: var(--radius);
@@ -111,47 +132,51 @@
   --sidebar-border: oklch(.92 0 0);
   --sidebar-ring: var(--ring);
 
-  /* ===========================
-     CalcMint Design Tokens
-  =========================== */
+ /* ===========================
+   CalcMint Design Tokens
+=========================== */
 
-  /* Surface */
+/* Surface */
 
-  --surface: #ffffff;
-  --surface-muted: #f8fafc;
+--surface: #ffffff;
+--surface-muted: #f8fafc;
+--surface-elevated: #ffffff;
 
-  /* Text */
+/* Text */
 
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
+--text-primary: #0f172a;
+--text-secondary: #334155;
+--text-muted: #64748b;
 
-  /* Success */
+/* Border */
 
-  --success: #10b981;
+--border-light: #e2e8f0;
+--border-strong: #cbd5e1;
 
-  /* Warning */
+/* Status */
 
-  --warning: #f59e0b;
+--success: #10b981;
+--warning: #f59e0b;
+--error: #ef4444;
+--info: #3b82f6;
 
-  /* Error */
+/* Shadows */
 
-  --error: #ef4444;
+--shadow-card: 0 2px 8px rgb(15 23 42 / 0.06);
+--shadow-card-hover: 0 16px 32px rgb(15 23 42 / 0.08);
 
-  /* Info */
+/* Spacing */
 
-  --info: #3b82f6;
+--section-space: 6rem;
+--content-space: 2rem;
+--card-padding: 1.5rem;
 
-  /* Shadows */
+/* Animation */
 
-  --shadow-card: 0 2px 8px rgb(15 23 42 / 0.06);
-  --shadow-card-hover: 0 16px 32px rgb(15 23 42 / 0.08);
+--transition-fast: 150ms ease;
+--transition-default: 250ms ease;
+--transition-slow: 350ms ease;
 
-  /* Spacing */
-
-  --section-space: 6rem;
-  --content-space: 2rem;
-  --card-padding: 1.5rem;
 }
 
 .dark {
@@ -197,38 +222,38 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold tracking-tight text-slate-900;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold tracking-tight text-text-primary;
+}
 
-  p {
-    @apply leading-7 text-slate-600;
-  }
+p {
+  @apply leading-7 text-text-secondary;
+}
 
-  ::selection {
-    @apply bg-emerald-600 text-white;
-  }
+::selection {
+  @apply bg-primary text-primary-foreground;
+}
 
   ::-webkit-scrollbar {
     width: 10px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-slate-100;
-  }
+  @apply bg-muted;
+}
 
-  ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-slate-300;
-  }
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-secondary;
+}
 
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-slate-400;
-  }
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
 }
 
 @layer utilities {
@@ -247,5 +272,33 @@
 
   .card-shadow-hover:hover {
     box-shadow: var(--shadow-card-hover);
+  }
+
+  .surface-card {
+  @apply rounded-2xl border border-border bg-card shadow-sm;
+}
+
+/* Table Scroll */
+
+  .table-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 transparent;
+  }
+
+  .table-scroll::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .table-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .table-scroll::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 9999px;
+  }
+
+  .table-scroll::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
   }
 }
