@@ -1,6 +1,6 @@
 import { CalculatorGrid } from "@/components/calculator/calculator-grid";
 import { Container } from "@/components/layout/container";
-import { Heading } from "@/components/common/heading";
+import { Heading } from "@/components/common/section-header";
 import { Section } from "@/components/common/section";
 
 export default function CalculatorsPage() {

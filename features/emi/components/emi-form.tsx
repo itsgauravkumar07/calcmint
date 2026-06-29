@@ -1,6 +1,6 @@
 "use client";
 
-import { CalculatorInput } from "@/components/common/calculator-input";
+import { CalculatorInput } from "@/components/calculator/calculator-input";
 
 interface EmiFormProps {
   principal: number;

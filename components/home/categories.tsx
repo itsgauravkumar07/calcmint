@@ -2,13 +2,13 @@ import { categories } from "@/data/categories";
 import { CategoryCard } from "@/components/calculator/category-card";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/common/section";
-import { Heading } from "@/components/common/heading";
+import { SectionHeader } from "@/components/common/section-header";
 
 export function Categories() {
   return (
     <Section>
       <Container>
-        <Heading
+        <SectionHeader
           center
           title="Browse by Category"
           description="Choose a finance category and discover powerful calculators."
