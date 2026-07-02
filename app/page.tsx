@@ -6,7 +6,8 @@ import {
         Categories,
         HowItWorks,
         CalculatorOfWeek,
-        LatestGuides 
+        LatestGuides,
+        CTASection 
       } from "@/components/home";
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
       <HowItWorks />
       <CalculatorOfWeek />
       <LatestGuides />
+      <CTASection />
     </>
   );
 }

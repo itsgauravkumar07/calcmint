@@ -5,4 +5,4 @@ export * from "./why-calcmint";
 export * from "./how-it-works";
 export * from "./calculator-of-week";
 export * from "./latest-guide";
-// export * from "./badge";
+export * from "./cta-section";
