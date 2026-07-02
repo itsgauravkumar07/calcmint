@@ -5,7 +5,8 @@ import {
         FeaturedCalculators, 
         Categories,
         HowItWorks,
-        CalculatorOfWeek 
+        CalculatorOfWeek,
+        LatestGuides 
       } from "@/components/home";
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <WhyCalcMint />
       <HowItWorks />
       <CalculatorOfWeek />
+      <LatestGuides />
     </>
   );
 }
