@@ -1,6 +1,10 @@
-import { Hero } from "@/components/home/hero";
-import { FeaturedCalculators } from "@/components/home/featured-calculators";
-import { Categories } from "@/components/home/categories";
+
+import {
+        WhyCalcMint, 
+        Hero, 
+        FeaturedCalculators, 
+        Categories 
+      } from "@/components/home";
 
 export default function HomePage() {
   return (
@@ -8,6 +12,7 @@ export default function HomePage() {
       <Hero />
       <FeaturedCalculators />
       <Categories />
+      <WhyCalcMint />
     </>
   );
 }

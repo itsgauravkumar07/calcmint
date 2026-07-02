@@ -1,8 +1,14 @@
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
+
+import {
+  Badge,
+  Lead,
+  PageTitle,
+} from "@/components/typography";
 
 const popularCalculators = [
   "EMI",
@@ -14,85 +20,77 @@ const popularCalculators = [
 
 export function Hero() {
   return (
-    <section className="border-b bg-gradient-to-b from-white to-slate-50">
+    <section className="border-b bg-gradient-to-b from-background via-background to-surface-muted">
       <Container>
-        <div className="grid min-h-[80vh] items-center gap-12 py-20 lg:grid-cols-2">
-
+        <div className="grid min-h-[80vh] items-center gap-16 py-20 lg:grid-cols-2">
           {/* Left */}
-
           <div>
-
-            <span className="inline-flex rounded-full bg-emerald-100 px-4 py-1 text-sm font-medium text-emerald-700">
+            <Badge>
               🚀 100% Free Finance Tools
-            </span>
+            </Badge>
 
-            <h1 className="mt-6 text-5xl font-bold leading-tight lg:text-6xl">
-              Smart Financial
-              <span className="block text-emerald-600">
+            <PageTitle className="mt-6 max-w-2xl">
+              Smart Financial{" "}
+              <span className="block text-primary">
                 Calculators
               </span>
-            </h1>
+            </PageTitle>
 
-            <p className="mt-6 max-w-xl text-lg text-slate-600">
-              Calculate EMI, SIP returns,
-              loan eligibility, taxes,
-              GST, FD maturity and more
-              with free financial tools.
-            </p>
+            <Lead className="mt-6 max-w-xl">
+              Calculate EMI, SIP returns, loan eligibility,
+              income tax, GST, FD maturity and more with
+              fast, accurate and completely free financial
+              calculators.
+            </Lead>
 
-            <div className="mt-8">
-
-              <Button
-                size="lg"
-                className="rounded-xl"
-                asChild
-              >
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button size="lg" asChild>
                 <Link href="/calculators">
                   <Search className="mr-2 h-5 w-5" />
                   Browse Calculators
                 </Link>
               </Button>
 
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+              >
+                <Link href="/guides">
+                  Financial Guides
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
 
-            <div className="mt-10">
-
-              <p className="mb-4 text-sm font-medium text-slate-500">
+            <div className="mt-12">
+              <p className="mb-4 text-sm font-medium text-text-muted">
                 Popular Searches
               </p>
 
               <div className="flex flex-wrap gap-3">
-
                 {popularCalculators.map((item) => (
                   <Link
                     key={item}
                     href="/calculators"
-                    className="rounded-full border bg-white px-4 py-2 text-sm hover:border-emerald-500 hover:text-emerald-600"
+                    className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-text-secondary transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:text-primary"
                   >
                     {item}
                   </Link>
                 ))}
-
               </div>
-
             </div>
-
           </div>
 
           {/* Right */}
 
-          <div className="hidden lg:flex items-center justify-center">
-
-            <div className="flex h-[420px] w-[420px] items-center justify-center rounded-3xl border bg-white shadow-xl">
-
-              <span className="text-slate-400">
+          <div className="hidden items-center justify-center lg:flex">
+            <div className="flex h-[420px] w-[420px] items-center justify-center rounded-3xl border border-border bg-card card-shadow">
+              <span className="text-text-muted">
                 Hero Illustration
               </span>
-
             </div>
-
           </div>
-
         </div>
       </Container>
     </section>

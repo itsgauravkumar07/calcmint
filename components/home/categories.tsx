@@ -1,20 +1,25 @@
 import { categories } from "@/data/categories";
-import { CategoryCard } from "@/components/calculator/category-card";
+
+import { CategoryCard } from "@/components/calculator";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/common/section";
-import { SectionHeader } from "@/components/common/section-header";
+
+import {
+  Section,
+  SectionHeader,
+} from "@/components/common";
 
 export function Categories() {
   return (
-    <Section>
+    <Section className="bg-background">
       <Container>
         <SectionHeader
           center
+          badge="Explore Categories"
           title="Browse by Category"
-          description="Choose a finance category and discover powerful calculators."
+          description="Choose a financial category to discover specialized calculators for loans, investments, taxes, savings, and more."
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {categories.map((category) => (
             <CategoryCard
               key={category.slug}
