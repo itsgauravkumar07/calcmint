@@ -3,7 +3,8 @@ import {
         WhyCalcMint, 
         Hero, 
         FeaturedCalculators, 
-        Categories 
+        Categories,
+        HowItWorks 
       } from "@/components/home";
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
       <FeaturedCalculators />
       <Categories />
       <WhyCalcMint />
+      <HowItWorks />
     </>
   );
 }
