@@ -3,6 +3,6 @@ export * from "./featured-calculators";
 export * from "./hero";
 export * from "./why-calcmint";
 export * from "./how-it-works";
-// export * from "./caption";
+export * from "./calculator-of-week";
 // export * from "./label";
 // export * from "./badge";

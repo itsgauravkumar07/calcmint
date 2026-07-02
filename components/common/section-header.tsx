@@ -10,7 +10,11 @@ interface SectionHeaderProps {
   title: string;
   description?: string;
   center?: boolean;
+
   className?: string;
+  badgeClassName?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
 }
 
 export function SectionHeader({
@@ -18,7 +22,11 @@ export function SectionHeader({
   title,
   description,
   center = false,
+
   className,
+  badgeClassName,
+  titleClassName,
+  descriptionClassName,
 }: SectionHeaderProps) {
   return (
     <div
@@ -29,17 +37,22 @@ export function SectionHeader({
       )}
     >
       {badge && (
-        <span className="inline-flex items-center rounded-full bg-emerald-100 px-4 py-1.5 text-sm font-semibold text-emerald-700">
+        <span
+          className={cn(
+            "inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary",
+            badgeClassName
+          )}
+        >
           {badge}
         </span>
       )}
 
-      <SectionTitle>
+      <SectionTitle className={titleClassName}>
         {title}
       </SectionTitle>
 
       {description && (
-        <Lead>
+        <Lead className={descriptionClassName}>
           {description}
         </Lead>
       )}
